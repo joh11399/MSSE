@@ -11,7 +11,7 @@ class BootStrap {
                 def u1 = new User(username: 'joh11399', password: 'P@$sW*rD', email: 'd', fullName: 'Dan Johnson', addressStreet: 'd', addressCity: 'd', addressState: 'MN', addressZip: 'd').save(failOnError: true)
                 def u2 = new User(username: 'haj11399', password: 'P@$sW*rD', email: 'd', fullName: 'Heather Johnson', addressStreet: 'd', addressCity: 'd', addressState: 'MN', addressZip: 'd').save(failOnError: true)
 
-                def a1 = new Auction(id: 'test1', name:'auct-1', description: 'first auction', begDate: Date.parse('MM/dd/yyyy', '03/01/2015'), endDate: Date.parse('MM/dd/yyyy', '03/01/2015'), minAmount: '10', buyAmount: '100', owner: u1).save(failOnError: true)
+                def a1 = new Auction(id: 'auct-1', name:'first', description: 'first auction', begDate: Date.parse('MM/dd/yyyy', '03/01/2015'), endDate: Date.parse('MM/dd/yyyy', '03/01/2015'), minAmount: '10', buyAmount: '100', owner: u1).save(failOnError: true)
 
                 new Bid(id: 'testBid1', auction: a1, bidder: u1, amount: '20', bidDate: Date.parse('MM/dd/yyyy', '03/01/2015')).save(failOnError: true)
 /*
