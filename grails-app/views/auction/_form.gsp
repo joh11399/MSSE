@@ -2,6 +2,15 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'owner', 'error')} required">
+	<label for="owner">
+		<g:message code="auction.owner.label" default="Owner" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="owner" name="owner.id" from="${msse.User.list()}" optionKey="id" required="" value="${auctionInstance?.owner?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="auction.name.label" default="Name" />
@@ -53,15 +62,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="buyAmount" required="" value="${auctionInstance?.buyAmount}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'owner', 'error')} required">
-	<label for="owner">
-		<g:message code="auction.owner.label" default="Owner" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="owner" name="owner.id" from="${msse.User.list()}" optionKey="id" required="" value="${auctionInstance?.owner?.id}" class="many-to-one"/>
 
 </div>
 

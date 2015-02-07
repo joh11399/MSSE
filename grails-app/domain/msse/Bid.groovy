@@ -6,13 +6,15 @@ class Bid {
     User bidder
     String amount
     Date bidDate
-
-
-
-    //static belongsTo = [users: User, auctions: Auction]
+    String toString(){
+        "${bidder} (${amount})"
+    }
 
     static constraints = {
         id(blank: false, unique: true)
-
+        auction()
+        bidder()
+        amount()
+        bidDate()
     }
 }

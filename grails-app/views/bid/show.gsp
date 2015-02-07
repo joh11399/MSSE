@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list bid">
 			
-				<g:if test="${bidInstance?.amount}">
-				<li class="fieldcontain">
-					<span id="amount-label" class="property-label"><g:message code="bid.amount.label" default="Amount" /></span>
-					
-						<span class="property-value" aria-labelledby="amount-label"><g:fieldValue bean="${bidInstance}" field="amount"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${bidInstance?.auction}">
 				<li class="fieldcontain">
 					<span id="auction-label" class="property-label"><g:message code="bid.auction.label" default="Auction" /></span>
@@ -41,20 +32,29 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?.bidDate}">
-				<li class="fieldcontain">
-					<span id="bidDate-label" class="property-label"><g:message code="bid.bidDate.label" default="Bid Date" /></span>
-					
-						<span class="property-value" aria-labelledby="bidDate-label"><g:formatDate date="${bidInstance?.bidDate}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${bidInstance?.bidder}">
 				<li class="fieldcontain">
 					<span id="bidder-label" class="property-label"><g:message code="bid.bidder.label" default="Bidder" /></span>
 					
 						<span class="property-value" aria-labelledby="bidder-label"><g:link controller="user" action="show" id="${bidInstance?.bidder?.id}">${bidInstance?.bidder?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${bidInstance?.amount}">
+				<li class="fieldcontain">
+					<span id="amount-label" class="property-label"><g:message code="bid.amount.label" default="Amount" /></span>
+					
+						<span class="property-value" aria-labelledby="amount-label"><g:fieldValue bean="${bidInstance}" field="amount"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${bidInstance?.bidDate}">
+				<li class="fieldcontain">
+					<span id="bidDate-label" class="property-label"><g:message code="bid.bidDate.label" default="Bid Date" /></span>
+					
+						<span class="property-value" aria-labelledby="bidDate-label"><g:formatDate date="${bidInstance?.bidDate}" /></span>
 					
 				</li>
 				</g:if>

@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list auction">
 			
+				<g:if test="${auctionInstance?.owner}">
+				<li class="fieldcontain">
+					<span id="owner-label" class="property-label"><g:message code="auction.owner.label" default="Owner" /></span>
+					
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="user" action="show" id="${auctionInstance?.owner?.id}">${auctionInstance?.owner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${auctionInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="auction.name.label" default="Name" /></span>
@@ -73,15 +82,6 @@
 					<span id="buyAmount-label" class="property-label"><g:message code="auction.buyAmount.label" default="Buy Amount" /></span>
 					
 						<span class="property-value" aria-labelledby="buyAmount-label"><g:fieldValue bean="${auctionInstance}" field="buyAmount"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${auctionInstance?.owner}">
-				<li class="fieldcontain">
-					<span id="owner-label" class="property-label"><g:message code="auction.owner.label" default="Owner" /></span>
-					
-						<span class="property-value" aria-labelledby="owner-label"><g:link controller="user" action="show" id="${auctionInstance?.owner?.id}">${auctionInstance?.owner?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

@@ -12,7 +12,6 @@ class User {
     String toString(){
         "${fullName} (${username})"
     }
-    //static hasMany = [auctions: Auction, bids: Bid]
 
     static constraints = {
         username(blank: false, unique: true)
