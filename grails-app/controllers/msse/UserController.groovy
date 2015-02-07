@@ -15,6 +15,42 @@ class UserController {
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
 
+
+
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    //  you got these 3 methods from here..  http://www.grailsexample.net/code-examples/
+    //  using this tutorial:  https://www.youtube.com/watch?v=xoDG6Anbx84
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    def login = {}
+
+    def authenticate = {
+
+        println(params.username + ' :: ' + params.password)
+
+
+        def user = User.findByUsernameAndPassword(params.username, params.password)
+        if(user){
+            session.user = user
+            flash.message = "Hello ${user.fullName}!"
+            redirect(action:"login")
+        }else{
+            flash.message = "Sorry, ${params.userName}. Please try again."
+            redirect(action:"login")
+        }
+    }
+
+    def logout = {
+        flash.message = "Goodbye ${session.user.fullName}"
+        session.user = null
+        redirect(action:"login")
+    }
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+
+
+
     def show(User userInstance) {
         respond userInstance
     }

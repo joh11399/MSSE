@@ -8,6 +8,25 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class AuctionController {
 
+
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    //  you got these 2 methods from here..  http://www.grailsexample.net/code-examples/
+    //  using this tutorial:  https://www.youtube.com/watch?v=xoDG6Anbx84
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    def beforeInterceptor = [action:this.&auth]
+
+    def auth() {
+        if(!session.user) {
+            redirect(controller:"User", action:"login")
+            return false
+        }
+    }
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
